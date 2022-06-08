@@ -20,7 +20,7 @@ public class UserDAO {
 					String dbPassword = "rnjstpdms0115";
 					
 					Class.forName("com.mysql.cj.jdbc.Driver");
-					conn = DriverManager.getConnection(dbURL,dbId, dbPassword);
+					conn = DriverManager.getConnection(dbURL, dbId, dbPassword);
 					System.out.println(">>>>>> DB연결 성공 ");
 					
 			} catch (Exception e) {
@@ -34,7 +34,7 @@ public class UserDAO {
 		
 		try {
 			pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, SQL);
+			pstmt.setString(1, userId);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				if(rs.getString(1).equals(userPw)) {
@@ -42,6 +42,8 @@ public class UserDAO {
 				}else 
 					return 0;
 			}
+			System.out.println("유저아이디 확인용: "+ userId + "유저 비밀번호:"+userPw);
+			
 			return -1; //아이디가 없음
 			
 		} catch (Exception e) {

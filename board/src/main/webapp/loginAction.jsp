@@ -17,7 +17,7 @@
 		// 로그인 한 사람은 회원가입 페이지에 접근할 수 없도록 만든다. 
 		String userId = null;
 		if (session.getAttribute("userId") != null) {
-			userId = (String) session.getAttribute("userSId");
+			userId = (String) session.getAttribute("userId");
 		}
 		if (userId != null) {
 			PrintWriter script = response.getWriter();
