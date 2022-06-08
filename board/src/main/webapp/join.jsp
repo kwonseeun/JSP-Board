@@ -35,7 +35,7 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle"	role="button" aria-haspopup="true" data-toggle="dropdown" 
 					aria-expanded="false">접속하기<span class="caret"></span></a>
-					<ul class="dropdown-menu">
+					<ul class="dropdown-mecnu">
 						<li class="active"><a href="login.jsp">로그인</a></li>
 						<li><a href="join.jsp">회원가입</a></li>
 					</ul>
@@ -51,17 +51,17 @@
 				<form method="post" action="joinAction.jsp">
 					<h3 style="text-align: center;">회원가입 화면</h3>
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="아이디" name="userID" maxlength="20">
+						<input type="text" class="form-control" placeholder="아이디" name="userId" maxlength="20">
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" placeholder="비밀번호" name="userPassword" maxlength="20">
+						<input type="password" class="form-control" placeholder="비밀번호" name="userPw" maxlength="20">
 					</div>
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="이름" name="userName" maxlength="20">
 					</div>
 					
 					<div class="form-group">
-						<input type="email" class="form-control" placeholder="이메일" name="userEmail" maxlength="20">
+						<input type="email" class="form-control" placeholder="이메일" name="userMail" maxlength="20">
 					</div>
 					<div class="form-group" style="text-align: center;">
 						<div class="btn-group" data-toggle="buttons">
