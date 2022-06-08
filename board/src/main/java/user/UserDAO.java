@@ -1,24 +1,25 @@
-package UserDAO;
+package user;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class userDAO {
+public class UserDAO {
 	
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
 	
-	public userDAO() {
+	public UserDAO() {
 		
 			try {
-					String dbURL = "jdbc:mysql://localhost:3306/TEST";
+					String dbURL = "jdbc:mysql://localhost:3306/TEST?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC";
 					String dbId = "kwon";
 					String dbPassword = "rnjstpdms0115";
-					Class.forName("com.mysql.jdbc.Driver");
+					
+					Class.forName("com.mysql.cj.jdbc.Driver");
 					conn = DriverManager.getConnection(dbURL,dbId, dbPassword);
 					
 			} catch (Exception e) {
@@ -28,7 +29,7 @@ public class userDAO {
 	
 	// 하나의 계정에 대한 로그인 시도를 해주는 함수
 	public int login(String userId, String userPw) {
-		String SQL = "SELECT userPw FROM USER_B WHERE userId = ?";
+		String SQL = "SELECT userPw FROM USER_B WHERE userId= ?";
 		
 		try {
 			pstmt = conn.prepareStatement(SQL);
