@@ -16,6 +16,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
 <title>글쓰기</title>
 </head>
 <body>
@@ -57,5 +59,9 @@
 				}
 			}
 	%>
+	
+	<script src="https://code.jquery.com/jquery-1.11.3.js"
+		integrity="sha256-IGWuzKD7mwVnNY01LtXxq3L84Tm/RJtNCYBfXZw3Je0="
+		crossorigin="anonymous"></script>
 </body>
 </html>
