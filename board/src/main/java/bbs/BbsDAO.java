@@ -160,7 +160,7 @@ public class BbsDAO {
 		
 		// 글 수정하는 함수
 		public int update(int bbsId, String bbsTitle, String bbsContent) {
-			String SQL = "UPDATE BBS SET bbsTitle =?, bbtContent = ? WHERE bbsId = ?";
+			String SQL = "UPDATE BBS SET bbsTitle =?, bbsContent = ? WHERE bbsId = ?";
 			
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(SQL);
