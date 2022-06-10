@@ -98,14 +98,11 @@
 							<td><input type="text" class="form-control"
 								placeholder="글 제목" name="bbsTitle" maxlength="50" value=<%=bbs.getBbsTitle() %>></td>
 						</tr>
-
 						<tr>
 							<td><textarea class="form-control" placeholder="글 내용"
 									name="bbsContent" maxlength="2048" style="height: 350px;"><%=bbs.getBbsContent() %></textarea></td>
 						</tr>
-
 					</tbody>
-					
 				</table>
 				<input type="submit" class="btn btn-primary pull-right" value="글수정">
 			</form>
