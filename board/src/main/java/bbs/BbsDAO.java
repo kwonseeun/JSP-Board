@@ -157,4 +157,21 @@ public class BbsDAO {
 			//정보가 없으면 null값을 반환
 			return null;
 		}
+		
+		// 글 수정하는 함수
+		public int update(int bbsId, String bbsTitle, String bbsContent) {
+			String SQL = "UPDATE BBS SET bbsTitle =?, bbtContent = ? WHERE bbsId = ?";
+			
+			try {
+				PreparedStatement pstmt = conn.prepareStatement(SQL);
+				pstmt.setString(1, bbsTitle);
+				pstmt.setString(2, bbsContent);
+				pstmt.setInt(3, bbsId);
+				return pstmt.executeUpdate();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return -1; //database error
+		}
 	}
