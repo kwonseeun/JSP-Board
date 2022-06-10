@@ -82,7 +82,7 @@ public class BbsDAO {
 		// 특정한 숫자보다 작고 삭제가 되지 않아서 AVAILABLE이 1인 글만 가져오고, 위에서 10개의 
 		// 글자까지만 가져오고 글 번호를 내림차순 하는 쿼리문 
 		String SQL = "SELECT * FROM BBS WHERE bbsId < ? and bbsAvailable = 1 ORDER BY bbsId DESC LIMIT 10";
-		
+	
 		// bbs클래스에서 나오는 인스턴스를 보관하는 리스트를 하나 만든다.
 		ArrayList<Bbs> list = new ArrayList<Bbs>();
 		
@@ -108,28 +108,53 @@ public class BbsDAO {
 		return list;
 	}
 	
-	// 10개밖에 없다면 다음 페이지가 없다는걸 알려주는 것, 페이지 처리를 위해 존재하는 함수
-	public boolean nextPage(int pageNumber) {
-		// 특정한 숫자보다 작고 삭제가 되지 않아서 AVAILABLE이 1인 글만 가져오고, 위에서 10개의 글까지 가져옴, 글 번호를 내림차순한다.
-		String SQL = "SELECT * FROM BBS WHERE bbsId < ? and bbsAvailable = 1 ORDER BY bbsId DESC LIMIT 10";
-		
-		//bbs 클래스에서 나오는 인스턴스를 보관하는 리스트 
-		ArrayList<Bbs> list = new ArrayList<Bbs>();
-		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			// 글 출력 개수
-			pstmt.setInt(1, getNext() - (pageNumber -1) * 10);
-			//결과가 하나라도 존재하면 다음 페이지로 넘어간다.
-			rs = pstmt.executeQuery();
-			
-			if (rs.next()) {
-				return true;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
+	//10개 밖에 없다면 다음 페이지가 없다는걸 알려주는 거에요. 페이지 처리를 위해서 존재하는 함수에요
+		public boolean nextPage(int pageNumber) {
+			// 특정한 숫자보다 작고 삭제가 되지 않아서 AVAILABLE이 1인 글만 가져오고 위에서 10개의 글까지만 가져오고 글 번호를 내림차순 하는 쿼리문입니다.
+					String SQL = "SELECT * FROM BBS WHERE bbsID < ? and bbsAvailable = 1 ORDER BY bbsID DESC LIMIT 10";
+					// Bbs클래스에서 나오는 인스턴스를 보관하는 리스트를 하나 만듭니다.
+					ArrayList<Bbs> list = new ArrayList<Bbs>();
+					try {
+						PreparedStatement pstmt = conn.prepareStatement(SQL);
+						// 글 출력 개수
+						pstmt.setInt(1, getNext() - (pageNumber -1) * 10);
+						rs = pstmt.executeQuery();
+						//결과가 하나라도 존재하면 다음페이지로 넘어갈 수 있다고 알려주고
+						if (rs.next()) {
+							return true;						
+						}
+						
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					//아니라면 false
+					return false;
 		}
-		// 아니라면 false
-		return false;
+		
+		//글 내용을 불러오는 함수
+		public Bbs getBbs(int bbsId) {
+			//특정 게시글 번호에 모든 정보를 가져오는 쿼리문입니다.
+			String SQL = "SELECT * FROM BBS WHERE bbsId =?";
+			try {
+				PreparedStatement pstmt = conn.prepareStatement(SQL);
+				pstmt.setInt(1,  bbsId);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					//글에 대한 정보를 담을 객체를 생성하고
+					Bbs bbs = new Bbs();
+					bbs.setBbsId(rs.getInt(1));
+					bbs.setBbsTitle(rs.getString(2));
+					bbs.setUserId(rs.getString(3));
+					bbs.setBbsDate(rs.getString(4));
+					bbs.setBbsContent(rs.getString(5));
+					bbs.setBbsAvailable(rs.getInt(6));
+					return bbs;
+					
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			//정보가 없으면 null값을 반환
+			return null;
+		}
 	}
-	
-}

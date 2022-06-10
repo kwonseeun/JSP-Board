@@ -52,7 +52,7 @@
 				<li><a href="analisys.jsp">통계</a></li>
 				<li class="active"><a href="bbs.jsp">게시판</a></li>
 			</ul>
-
+ 
 			<%
 				//로그인이 되어 있지 않다면
 				if (userId == null) {
@@ -80,7 +80,6 @@
 			<%
 				}
 			%>
-
 		</div>
 	</nav>
 
@@ -90,7 +89,7 @@
 			<table class="table table-striped"
 				style="text-align: center; border: 1px solid #dddddd">
 				<!-- thead : 테이블의 제목부분 각각의 속성들을 알려주는 역할을 합니다. -->
-				<thead>
+				<thead>   
 					<tr>
 						<th style="background-color: #eeeeee; text-align: center;">번호</th>
 						<th style="background-color: #eeeeee; text-align: center;">제목</th>
@@ -107,7 +106,7 @@
 					<tr>
 						<td><%=list.get(i).getBbsId() %></td>
 						<!-- 글 제목을 선택하면 상세 내용으로 이동 -->
-						<td><a href="view.jsp?bbsID=<%=list.get(i).getBbsId() %>"> <%=list.get(i).getBbsTitle() %></a></td>
+						<td><a href="view.jsp?bbsId=<%=list.get(i).getBbsId() %>"> <%=list.get(i).getBbsTitle() %></a></td>
 						<td><%=list.get(i).getUserId() %></td>
 						<td><%=list.get(i).getBbsDate().substring(0,11) + list.get(i).getBbsDate().substring(11,13)+"시"+list.get(i).getBbsDate().substring(14, 16)+"분" %></td>
 					</tr>
@@ -115,7 +114,7 @@
 						}
 					%>
 				</tbody>
-			</table>
+			</table>  
 			<%
 				if(pageNumber != 1){
 			%>
