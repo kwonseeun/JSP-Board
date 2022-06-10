@@ -174,4 +174,17 @@ public class BbsDAO {
 			}
 			return -1; //database error
 		}
+		
+		//bbsAvailable 을 0으로 바꿈으로써 화면에 표시하지 않게 한다
+		public int delete(int bbsId) {
+			String SQL = "DELETE BBS SET bbsAvailable = 0 WHERE bbsId = ?";
+			try {
+				PreparedStatement pstmt = conn.prepareStatement(SQL);
+				pstmt.setInt(1, bbsId);
+				return pstmt.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return -1; //db error
+		}
 	}
