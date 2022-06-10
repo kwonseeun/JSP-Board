@@ -75,7 +75,6 @@
 						<li><a href="logoutAction.jsp">로그아웃</a></li>
 					</ul></li>
 			</ul>
-		
 		</div>
 	</nav>
 
