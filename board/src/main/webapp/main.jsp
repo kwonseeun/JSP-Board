@@ -70,7 +70,47 @@
 		</div>
 	</nav>
 	
+	<!-- 일반적으로 웹사이트를 소개하는 영역이 있는데 부트스랩에서 jumbotron이라고 사용을 합니다. -->
+	<div class="container">
+		<div class="jumbotron">
+			<div class="container">
+				<h1> 웹 사이트 소개</h1>
+				<p> 이 웹 사이트는 부트스트랩으로 만든 JSP 웹 사이트 입니다. 최소한의 간단한 로직만을 이용해서 개발했습니다. </p>
+				<!-- 보통 웹페이지에 버튼이 하나씩 있는게 이뻐서 하나 넣어보았습니다. -->
+				<p><a class="btn btn-primary btn-pull" href="#" role="button">자세히 알아보기</a></p>
+			</div>
+		</div>
+	</div>
 	
+	<!-- carousel은 사진첩 같은거라고 생각 하시면 됩니다. -->
+	<div class="container">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+			
+			<div class="carousel-inner">
+				<div class="item active"> <!-- active 현재 선택 -->
+					<img src="images/1.png">
+				</div>
+				<div class="item">
+					<img src="images/2.jpg">
+				</div>
+				<div class="item">
+					<img src="images/3.jpg">
+				</div>
+			</div>
+			
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+		</div>
+	</div>
 
 		<script src="https://code.jquery.com/jquery-1.11.3.js"
 			integrity="sha256-IGWuzKD7mwVnNY01LtXxq3L84Tm/RJtNCYBfXZw3Je0="
