@@ -91,17 +91,7 @@
 				<li data-target="#myCarousel" data-slide-to="2"></li>
 			</ol>
 			
-			<div class="carousel-inner">
-				<div class="item active"> <!-- active 현재 선택 -->
-					<img src="images/1.png">
-				</div>
-				<div class="item">
-					<img src="images/2.jpg">
-				</div>
-				<div class="item">
-					<img src="images/3.jpg">
-				</div>
-			</div>
+		
 			
 			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
 			<span class="glyphicon glyphicon-chevron-left"></span>
