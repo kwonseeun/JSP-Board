@@ -14,9 +14,9 @@
 <body>
 	<!--  로그인이 된 사람은 로그인정보를 담을 수 있도록 만들어 주겠습니다. -->
 	<%
-		String userID = null;
-		if (session.getAttribute("userID") != null) {
-			userID = (String) session.getAttribute("userID");
+		String userId = null;
+		if (session.getAttribute("userId") != null) {
+			userId = (String) session.getAttribute("userId");
 		}
 	%>
 	<nav class="navbar navbar-default">
@@ -27,7 +27,7 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main.jsp">Rodin Web Site</a>
+			<a class="navbar-brand" href="main.jsp">Web Site</a>
 		</div>
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
@@ -41,7 +41,7 @@
 
 			<%
 				//로그인이 되어 있지 않다면
-				if (userID == null) {
+				if (userId == null) {
 			%>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -74,10 +74,10 @@
 	<div class="container">
 		<div class="jumbotron">
 			<div class="container">
-				<h1> 웹 사이트 소개</h1>
+				<h1> web site</h1>
 				<p> 이 웹 사이트는 부트스트랩으로 만든 JSP 웹 사이트 입니다. 최소한의 간단한 로직만을 이용해서 개발했습니다. </p>
 				<!-- 보통 웹페이지에 버튼이 하나씩 있는게 이뻐서 하나 넣어보았습니다. -->
-				<p><a class="btn btn-primary btn-pull" href="#" role="button">자세히 알아보기</a></p>
+				<p><a class="btn btn-primary btn-pull" href="main.jsp" role="button">자세히 알아보기</a></p>
 			</div>
 		</div>
 	</div>
@@ -114,10 +114,6 @@
 
 		<script src="https://code.jquery.com/jquery-1.11.3.js"
 			integrity="sha256-IGWuzKD7mwVnNY01LtXxq3L84Tm/RJtNCYBfXZw3Je0="
-			crossorigin="anonymous"></script>
-		<script
-			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-			integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 			crossorigin="anonymous"></script>
 </body>
 </html>
